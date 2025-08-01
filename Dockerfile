@@ -3,7 +3,11 @@ FROM debian:bullseye AS builder
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     build-essential \
-    libboost-dev \
+    libboost-system-dev \
+    libboost-program-options-dev \
+    libboost-filesystem-dev \
+    libboost-date-time-dev \
+    libboost-chrono-dev \
     libssl-dev \
     zlib1g-dev \
     ca-certificates
@@ -16,6 +20,7 @@ RUN make
 FROM debian:bullseye-slim
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    libboost-system1.74.0 \
     libboost-program-options1.74.0 \
     libboost-filesystem1.74.0 \
     libboost-date-time1.74.0 \
