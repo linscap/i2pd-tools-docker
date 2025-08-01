@@ -5,7 +5,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libboost-dev \
     libssl-dev \
-    zlib1g-dev
+    zlib1g-dev \
+    ca-certificates
 
 WORKDIR /app
 RUN git clone --recursive https://github.com/purplei2p/i2pd-tools .
